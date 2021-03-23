@@ -1,0 +1,11 @@
+node_modules/
+dist/
+docs/
+.DS_Store
+.editorconfig
+.log
+.env
+.vscode
+.idea
+*.yml
+*.yaml
