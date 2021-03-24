@@ -6,8 +6,63 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="styles/styles.css">
 	<link rel="stylesheet" href="styles/nullstyle.css">
+	<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
 	<title>Book list</title>
 </head>
 <body>
+	<div class="container">
+		<div class="wrap">
+			<div>
+				<form id="addBookForm" action="#" class="form">
+					<input
+						placeholder="Автор"
+						id="author"
+						type="text"
+						class="form-control"
+						aria-label="Small"
+						aria-describedby="inputGroup-sizing-sm"
+					>
+	
+					<input
+						placeholder="Год издания"
+						id="yearOfPublishing"
+						type = "text"
+						class="form-control"
+						aria-label="Small"
+						aria-describedby="inputGroup-sizing-sm"
+					>
+	
+					<input
+						placeholder="Название книги"
+						id="bookName"
+						type="text"
+						class="form-control"
+						aria-label="Small"
+						aria-describedby="inputGroup-sizing-sm"
+					>
+	
+					<input
+						placeholder="Кол-во страниц"
+						id="numberOfPage"
+						type="text"
+						class="form-control"
+						aria-label="Small"
+						aria-describedby="inputGroup-sizing-sm"
+					>
+	
+					<button id="addBook" type="button" class="btn btn-outline-success">Добавить книгу</button>
+				</form>
+			</div>
+
+			<div id="books" class="books">
+
+			</div>
+		</div>
+	</div>
+
+	<script src="./js/store.js"></script>
+	<script src="./js/book.js"></script>
+	<script src="./js/utils.js"></script>
+	<script src="./js/addBook.js"></script>
 </body>
 </html>

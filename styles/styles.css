@@ -1,0 +1,39 @@
+.container {
+	display: flex;
+	width: 100vw;
+	justify-content: center;
+}
+
+.wrap {
+	margin-top: 24px;
+	max-width: 1140px;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 264px 1fr;
+	grid-column-gap: 16px;
+}
+
+.form {
+	width: 100%;
+	position: fixed;
+	max-width: 264px;
+	display: grid;
+	grid-row-gap: 8px;
+}
+
+.books {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	overflow: auto;
+	min-height: 100vh;
+}
+
+.book {
+	border-radius: 3px;
+	border: 1px solid #333;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px;
+}
