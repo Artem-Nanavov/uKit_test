@@ -2,7 +2,7 @@ class Store {
 	_books = [];
 
 	initializeStore = () => {
-		const books = localStorage.getItem('books') || [];
+		const books = JSON.parse(localStorage.getItem('books')) || [];
 		this._setBooks(books);
 	};
 
@@ -26,3 +26,5 @@ class Store {
 }
 
 const store = new Store();
+
+store.initializeStore();
