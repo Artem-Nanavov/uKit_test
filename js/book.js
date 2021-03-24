@@ -48,12 +48,24 @@ class Book {
 	_deleteBook = (bookId) => {
 		store.deleteBook(bookId);
 
-		const elem = document.getElementById(bookId);
-    elem.parentNode.removeChild(elem);
+		const book = document.getElementById(bookId);
+    book.parentNode.removeChild(book);
+	};
+
+	renderBooks = () => {
+		const books = store.getBooks();
+
+		for (let i = 0; i < books.length; ++i) {
+			const book = this._createBook(books[i]);
+
+			document.getElementById('books').append(book);
+		}
 	};
 }
 
 const book = new Book();
+
+book.renderBooks();
 
 const addBookBtn = document.getElementById('addBook');
 addBookBtn.addEventListener('click', book.addBook);
