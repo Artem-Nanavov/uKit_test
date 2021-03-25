@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,6 +30,7 @@
 						name="yearOfPublishing"
 						class="form-control"
 						aria-label="Small"
+						oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
 						aria-describedby="inputGroup-sizing-sm"
 					>
 	
@@ -46,6 +47,7 @@
 						placeholder="Кол-во страниц"
 						type="text"
 						name="numberOfPage"
+						oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
 						class="form-control"
 						aria-label="Small"
 						aria-describedby="inputGroup-sizing-sm"
@@ -75,6 +77,7 @@
 			<input
 				placeholder="Год издания"
 				type = "text"
+				oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
 				name="yearOfPublishing"
 				class="form-control"
 				aria-label="Small"
@@ -94,6 +97,7 @@
 				placeholder="Кол-во страниц"
 				type="text"
 				class="form-control"
+				oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
 				aria-label="Small"
 				name="numberOfPage"
 				aria-describedby="inputGroup-sizing-sm"

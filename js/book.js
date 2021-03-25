@@ -27,6 +27,12 @@ class Book {
 
 	addBook = () => {
 		const form = document.getElementById('addBookForm').elements;
+		const [isValid, emptyFields] = validateFormValues(form);
+
+		if (!isValid) {
+			return alert(`Не все поля введены (${emptyFields.join(', ')})`)
+		}
+
 		const book = {_id: generateId(10), ...getValuesFromForm(form)};
 
 		store.addBook(book);
@@ -69,6 +75,12 @@ class Book {
 
 	saveChanges = () => {
 		const form = document.querySelector('.editBook__form').elements;
+		const [isValid, emptyFields] = validateFormValues(form);
+
+		if (!isValid) {
+			return alert(`Не все поля введены (${emptyFields.join(', ')})`)
+		}
+
 		const book = {...getValuesFromForm(form)};
 
 		this._updateBookHtml(this.editBookId, book);
