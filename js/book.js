@@ -15,7 +15,7 @@ class Book {
 				<p name="bookName" class="font-weight-light">${book.bookName}</p>
 			</div>
 
-			<div class="books__btns">
+			<div class="book__btns">
 				<button type="button" onclick="book.editBook('${book._id}')" class="btn btn-outline-info btn-sm">Изменить</button>
 
 				<button type="button" onclick="book.deleteBook('${book._id}')" class="btn btn-outline-danger btn-sm">Удалить</button>
@@ -75,6 +75,7 @@ class Book {
 		store.updateBook(this.editBookId, book);
 
 		document.querySelector('.editBook').style.display = 'none';
+		document.body.style.overflow = 'auto';
 		this.editBookId = null;
 	};
 

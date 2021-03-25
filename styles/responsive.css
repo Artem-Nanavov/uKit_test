@@ -1,0 +1,23 @@
+@media screen and (max-width: 710px) {
+	.editBook {
+		padding: 0 8px;
+	}
+
+	.form {
+		position: relative;
+		max-width: 100%;
+	}
+
+	.wrap {
+		display: block;
+		grid-template-columns: 1fr;
+	}
+}
+
+@media screen and (max-width: 510px) {
+	.book {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-row-gap: 8px;
+	}
+}
