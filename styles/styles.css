@@ -37,3 +37,23 @@
 	justify-content: space-between;
 	padding: 8px;
 }
+
+.editBook {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.3);
+	align-items: center;
+	justify-content: center;
+}
+
+.editBook__form {
+	max-width: 400px;
+	width: 100%;
+	padding: 8px;
+	background-color: #fff;
+	border-radius: 3px;
+}

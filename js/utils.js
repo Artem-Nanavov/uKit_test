@@ -9,3 +9,15 @@ const generateId = (len) => {
 
 	return result;
 };
+
+const getValuesFromForm = (form) => {
+	const values = {};
+
+	for (let i = 0; i < form.length; ++i) {
+		if (form[i].nodeName === 'INPUT') {
+			values[form[i].name] = form[i].value;
+		}
+	}
+
+	return values;
+};

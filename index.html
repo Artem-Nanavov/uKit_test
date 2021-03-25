@@ -16,7 +16,7 @@
 				<form id="addBookForm" action="#" class="form">
 					<input
 						placeholder="Автор"
-						id="author"
+						name="author"
 						type="text"
 						class="form-control"
 						aria-label="Small"
@@ -25,8 +25,8 @@
 	
 					<input
 						placeholder="Год издания"
-						id="yearOfPublishing"
 						type = "text"
+						name="yearOfPublishing"
 						class="form-control"
 						aria-label="Small"
 						aria-describedby="inputGroup-sizing-sm"
@@ -34,7 +34,7 @@
 	
 					<input
 						placeholder="Название книги"
-						id="bookName"
+						name="bookName"
 						type="text"
 						class="form-control"
 						aria-label="Small"
@@ -43,8 +43,8 @@
 	
 					<input
 						placeholder="Кол-во страниц"
-						id="numberOfPage"
 						type="text"
+						name="numberOfPage"
 						class="form-control"
 						aria-label="Small"
 						aria-describedby="inputGroup-sizing-sm"
@@ -58,6 +58,48 @@
 
 			</div>
 		</div>
+	</div>
+
+	<div class="editBook">
+		<form action="#" class="editBook__form form">
+			<input
+				placeholder="Автор"
+				type="text"
+				name="author"
+				class="form-control"
+				aria-label="Small"
+				aria-describedby="inputGroup-sizing-sm"
+			>
+
+			<input
+				placeholder="Год издания"
+				type = "text"
+				name="yearOfPublishing"
+				class="form-control"
+				aria-label="Small"
+				aria-describedby="inputGroup-sizing-sm"
+			>
+
+			<input
+				placeholder="Название книги"
+				type="text"
+				name="bookName"
+				class="form-control"
+				aria-label="Small"
+				aria-describedby="inputGroup-sizing-sm"
+			>
+
+			<input
+				placeholder="Кол-во страниц"
+				type="text"
+				class="form-control"
+				aria-label="Small"
+				name="numberOfPage"
+				aria-describedby="inputGroup-sizing-sm"
+			>
+
+			<button id="editBookBtn" type="button" class="btn btn-outline-success">Сохранить изменения</button>
+		</form>
 	</div>
 
 	<script src="./js/utils.js"></script>

@@ -1,4 +1,6 @@
 class Book {
+	editBookId = null;
+
 	/**
 	 * @param {{author: string; bookName: string; _id: string}} book 
 	 */
@@ -9,14 +11,14 @@ class Book {
 
 		newBook.innerHTML = `
 			<div class="book__text">
-				<p class="font-weight-light">${book.author}</p>
-				<p class="font-weight-light">${book.bookName}</p>
+				<p name="author" class="font-weight-light">${book.author}</p>
+				<p name="bookName" class="font-weight-light">${book.bookName}</p>
 			</div>
 
 			<div class="books__btns">
-				<button type="button" onclick="console.log(${book._id})" class="btn btn-outline-info btn-sm">Изменить</button>
+				<button type="button" onclick="book.editBook('${book._id}')" class="btn btn-outline-info btn-sm">Изменить</button>
 
-				<button type="button" onclick="book._deleteBook('${book._id}')" class="btn btn-outline-danger btn-sm">Удалить</button>
+				<button type="button" onclick="book.deleteBook('${book._id}')" class="btn btn-outline-danger btn-sm">Удалить</button>
 			</div>
 		`
 
@@ -24,28 +26,16 @@ class Book {
 	};
 
 	addBook = () => {
-		const _id = generateId(10);
-		const author = document.getElementById('author').value;
-		const yearOfPublishing = document.getElementById('yearOfPublishing').value;
-		const bookName = document.getElementById('bookName').value;
-		const numberOfPage = document.getElementById('numberOfPage').value;
-	
-		store.addBook({
-			_id,
-			author,
-			yearOfPublishing,
-			bookName,
-			numberOfPage,
-		});
-	
-		document.getElementById('addBookForm').reset()
-	
-		const newBook = this._createBook({_id, author, bookName})
-	
+		const form = document.getElementById('addBookForm').elements;
+		const book = {_id: generateId(10), ...getValuesFromForm(form)};
+
+		store.addBook(book);
+		document.getElementById('addBookForm').reset();
+		const newBook = this._createBook(book);
 		document.getElementById('books').append(newBook);
 	};
 
-	_deleteBook = (bookId) => {
+	deleteBook = (bookId) => {
 		store.deleteBook(bookId);
 
 		const book = document.getElementById(bookId);
@@ -61,11 +51,45 @@ class Book {
 			document.getElementById('books').append(book);
 		}
 	};
+
+	editBook = (bookId) => {
+		this.editBookId = bookId;
+		const book = store.getBookById(bookId);
+		const form = document.querySelector('.editBook__form').elements;
+
+		for (let i = 0; i < form.length; ++i) {
+			if (form[i].nodeName === 'INPUT') {
+				form[i].value = book[form[i].name];
+			}
+		}
+
+		document.body.style.overflow = 'hidden';
+		document.querySelector('.editBook').style.display = 'flex';
+	};
+
+	saveChanges = () => {
+		const form = document.querySelector('.editBook__form').elements;
+		const book = {...getValuesFromForm(form)};
+
+		this._updateBookHtml(this.editBookId, book);
+		store.updateBook(this.editBookId, book);
+
+		document.querySelector('.editBook').style.display = 'none';
+		this.editBookId = null;
+	};
+
+	_updateBookHtml = (bookId, _newBook) => {
+		const p = document.getElementById(bookId).getElementsByTagName('p');
+		
+		for (let i = 0; i < p.length; ++i) {
+			p[i].innerText = _newBook[p[i].attributes[0].value];	
+		}
+	};
 }
 
 const book = new Book();
 
 book.renderBooks();
 
-const addBookBtn = document.getElementById('addBook');
-addBookBtn.addEventListener('click', book.addBook);
+document.getElementById('addBook').addEventListener('click', book.addBook);
+document.getElementById('editBookBtn').addEventListener('click', book.saveChanges);
