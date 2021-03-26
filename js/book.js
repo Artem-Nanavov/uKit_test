@@ -105,4 +105,8 @@ const book = new Book();
 book.renderBooks();
 
 document.getElementById('addBook').addEventListener('click', book.addBook);
+document.getElementById('cancelEditBookBtn').addEventListener('click', () => {
+	document.querySelector('.editBook').style.display = 'none';
+	document.body.style.overflow = 'auto';
+});
 document.getElementById('editBookBtn').addEventListener('click', book.saveChanges);
